@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Monthsiversary, My Love! ❤️</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-lemon: #FFF7E1;
+            --wine-red: #790C12;
+            --wine-red-dark: #5c080d;
+            --wine-red-light: rgba(121, 12, 18, 0.08);
+            --wine-red-border: rgba(121, 12, 18, 0.2);
+            --white: #FFFFFF;
+            --text-main: #4a070b;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-lemon);
+            color: var(--text-main);
+            font-family: 'Poppins', sans-serif;
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Floating Hearts Background */
+        .hearts-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            overflow: hidden;
+            z-index: 0;
+        }
+
+        .floating-heart {
+            position: absolute;
+            color: var(--wine-red);
+            opacity: 0.15;
+            animation: floatUp 8s infinite linear;
+            font-size: 20px;
+        }
+
+        @keyframes floatUp {
+            0% {
+                transform: translateY(100vh) scale(0.6) rotate(0deg);
+                opacity: 0;
+            }
+            20% {
+                opacity: 0.2;
+            }
+            80% {
+                opacity: 0.2;
+            }
+            100% {
+                transform: translateY(-10vh) scale(1.4) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Header */
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            animation: fadeInDown 1s ease-out;
+        }
+
+        .subtitle-top {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--wine-red);
+            font-weight: 600;
+            margin-bottom: 10px;
+            display: inline-block;
+            padding: 5px 15px;
+            background: var(--wine-red-light);
+            border-radius: 20px;
+        }
+
+        h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 3.8rem;
+            color: var(--wine-red);
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(121, 12, 18, 0.1);
+        }
+
+        .header-desc {
+            font-size: 1.05rem;
+            color: var(--text-main);
+            opacity: 0.85;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Cards / Sections */
+        .card {
+            background: var(--white);
+            border: 1px solid var(--wine-red-border);
+            border-radius: 24px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(121, 12, 18, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(121, 12, 18, 0.08);
+        }
+
+        /* Countdown Timer */
+        .countdown-section {
+            text-align: center;
+        }
+
+        .section-title {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.4rem;
+            color: var(--wine-red);
+            margin-bottom: 25px;
+        }
+
+        .timer-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .timer-box {
+            background: var(--bg-lemon);
+            border: 1px solid var(--wine-red-border);
+            border-radius: 16px;
+            padding: 15px 10px;
+            text-align: center;
+        }
+
+        .timer-value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--wine-red);
+            line-height: 1.2;
+        }
+
+        .timer-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--text-main);
+            margin-top: 5px;
+            opacity: 0.8;
+            font-weight: 600;
+        }
+
+        .timer-note {
+            font-size: 0.85rem;
+            color: var(--wine-red);
+            font-style: italic;
+            opacity: 0.85;
+        }
+
+        .timer-note span {
+            font-weight: 600;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+
+        /* Love Note Section */
+        .note-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .note-header span {
+            font-size: 1.5rem;
+        }
+
+        .note-content {
+            background: var(--bg-lemon);
+            border: 1px dashed var(--wine-red);
+            border-radius: 16px;
+            padding: 20px;
+            font-size: 0.95rem;
+            line-height: 1.7;
+            color: var(--text-main);
+            outline: none;
+            transition: background 0.2s;
+        }
+
+        .note-content:focus {
+            background: var(--white);
+        }
+
+        .edit-hint {
+            font-size: 0.75rem;
+            color: var(--wine-red);
+            opacity: 0.7;
+            text-align: right;
+            margin-top: 8px;
+        }
+
+        /* Photo Gallery - 6 slots */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .timer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            h1 {
+                font-size: 3rem;
+            }
+        }
+
+        .polaroid {
+            background: var(--white);
+            border: 1px solid var(--wine-red-border);
+            padding: 12px 12px 15px 12px;
+            border-radius: 12px;
+            box-shadow: 0 6px 20px rgba(121, 12, 18, 0.06);
+            transition: transform 0.3s ease;
+            position: relative;
+        }
+
+        .polaroid:hover {
+            transform: scale(1.03) rotate(1deg);
+        }
+
+        .polaroid-img-wrap {
+            width: 100%;
+            height: 160px;
+            background: var(--bg-lemon);
+            border-radius: 8px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .polaroid-img-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .upload-placeholder {
+            text-align: center;
+            color: var(--wine-red);
+            opacity: 0.7;
+            font-size: 0.85rem;
+            padding: 10px;
+        }
+
+        .polaroid-caption {
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.3rem;
+            color: var(--wine-red);
+            text-align: center;
+            margin-top: 12px;
+            outline: none;
+        }
+
+        .file-input {
+            display: none;
+        }
+
+        /* Reasons Why I Love You */
+        .reasons-container {
+            text-align: center;
+        }
+
+        .reason-card-box {
+            background: var(--bg-lemon);
+            border: 1px solid var(--wine-red-border);
+            border-radius: 16px;
+            padding: 25px;
+            margin: 20px 0;
+            min-height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .reason-text {
+            font-size: 1.1rem;
+            color: var(--wine-red);
+            font-weight: 500;
+        }
+
+        .btn {
+            background: var(--wine-red);
+            color: var(--white);
+            border: none;
+            padding: 12px 28px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: background 0.2s, transform 0.1s;
+            box-shadow: 0 4px 15px rgba(121, 12, 18, 0.2);
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .btn:hover {
+            background: var(--wine-red-dark);
+            transform: translateY(-2px);
+        }
+
+        .btn:active {
+            transform: translateY(0);
+        }
+
+        /* Date Invitation Section */
+        .invitation-section {
+            text-align: center;
+        }
+
+        .invitation-question {
+            font-size: 1.3rem;
+            color: var(--wine-red);
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .invitation-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            position: relative;
+            min-height: 60px;
+            align-items: center;
+        }
+
+        .btn-yes {
+            background: var(--wine-red);
+            color: var(--white);
+            padding: 12px 35px;
+            border-radius: 30px;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: transform 0.2s;
+            box-shadow: 0 4px 15px rgba(121, 12, 18, 0.2);
+        }
+
+        .btn-yes:hover {
+            transform: scale(1.05);
+        }
+
+        .btn-no {
+            background: #e0d5be;
+            color: var(--text-main);
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            position: relative;
+            transition: all 0.2s ease;
+        }
+
+        .itinerary-card {
+            display: none;
+            background: var(--bg-lemon);
+            border: 1px solid var(--wine-red-border);
+            border-radius: 16px;
+            padding: 20px;
+            margin-top: 20px;
+            text-align: left;
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        .itinerary-card h4 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2rem;
+            color: var(--wine-red);
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .itinerary-details {
+            font-size: 0.95rem;
+            line-height: 1.8;
+            color: var(--text-main);
+        }
+
+        .rsvp-input {
+            width: 100%;
+            margin-top: 15px;
+            padding: 12px;
+            border-radius: 10px;
+            border: 1px solid var(--wine-red-border);
+            background: var(--white);
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-main);
+            outline: none;
+        }
+
+        /* Surprise Gift Box */
+        .gift-section {
+            text-align: center;
+        }
+
+        .gift-box {
+            font-size: 4rem;
+            cursor: pointer;
+            display: inline-block;
+            transition: transform 0.3s;
+            animation: bounce 2s infinite;
+            margin: 15px 0;
+        }
+
+        .gift-box:hover {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+            40% {transform: translateY(-15px);}
+            60% {transform: translateY(-7px);}
+        }
+
+        /* Audio Control Button */
+        .music-control {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: var(--wine-red);
+            color: var(--white);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(121, 12, 18, 0.3);
+            z-index: 100;
+            font-size: 1.2rem;
+            transition: transform 0.2s;
+        }
+
+        .music-control:hover {
+            transform: scale(1.1);
+        }
+
+        /* Lightbox */
+        .lightbox {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(74, 7, 11, 0.85);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            padding: 20px;
+        }
+
+        .lightbox img {
+            max-width: 90%;
+            max-height: 85vh;
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+            border: 3px solid var(--white);
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 25px;
+            right: 30px;
+            color: var(--white);
+            font-size: 2.5rem;
+            cursor: pointer;
+            font-weight: 300;
+        }
+
+        /* Confetti / Hearts pop */
+        .confetti-heart {
+            position: fixed;
+            font-size: 24px;
+            pointer-events: none;
+            z-index: 999;
+            animation: fallAndFade 1.5s ease-out forwards;
+        }
+
+        @keyframes fallAndFade {
+            0% {
+                transform: translateY(0) scale(0.5) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-120px) translateX(var(--rand-x)) scale(1.3) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Floating Background Hearts -->
+    <div class="hearts-bg" id="heartsBg"></div>
+
+    <!-- Audio Toggle Button -->
+    <div class="music-control" id="musicToggle" title="Play Romantic Melody">
+        🎵
+    </div>
+
+    <!-- Lightbox Modal -->
+    <div class="lightbox" id="lightbox">
+        <span class="lightbox-close" id="lightboxClose">&times;</span>
+        <img id="lightboxImg" src="" alt="Enlarged Memory">
+    </div>
+
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <div class="subtitle-top">❤️ Happy Monthsiversary ❤️</div>
+            <h1>My Forever & Always</h1>
+            <p class="header-desc">Every moment with you feels like a dream come true. Here is to our wonderful journey of love!</p>
+        </header>
+
+        <!-- Countdown Card -->
+        <section class="card countdown-section">
+            <h2 class="section-title">Together For</h2>
+            <div class="timer-grid">
+                <div class="timer-box">
+                    <div class="timer-value" id="yearsCount">2</div>
+                    <div class="timer-label">Years</div>
+                </div>
+                <div class="timer-box">
+                    <div class="timer-value" id="monthsCount">4</div>
+                    <div class="timer-label">Months</div>
+                </div>
+                <div class="timer-box">
+                    <div class="timer-value" id="daysCount">852</div>
+                    <div class="timer-label">Days</div>
+                </div>
+                <div class="timer-box">
+                    <div class="timer-value" id="hoursCount">20,454</div>
+                    <div class="timer-label">Hours</div>
+                </div>
+            </div>
+            <p class="timer-note">Counting every second since our love story began on <span id="startDateText">October 1, 2026</span></p>
+        </section>
+
+        <!-- Love Note Section -->
+        <section class="card">
+            <div class="note-header">
+                <span>🪶</span>
+                <h2 class="section-title" style="margin: 0;">A Little Love Note</h2>
+            </div>
+            <div class="note-content" contenteditable="true" spellcheck="false">
+                My Dearest,<br><br>
+                "Happy Motmot, hon! Thank you always hon, for everything. Thank you for your endless patience, your infectious laughter, and the way you make even ordinary days feel extraordinary. Thank you hon, I'll make it up to you. Even though I am just like this, you still love me. I hope you don't get mad all the time because I don't like it when you're mad. Thank you for taking care of me, especially with my sassy attitude and how easily I get irritated. Even though I'm like this, you understand and your patience is endless for me. Thank you hon. I'll make it up to you.<br><br>
+
+This isn't a short message anymore, hahaha. Sorry hon for everything I've done, especially my attitude. I love you hon, so please don't take it against me or shout at me because you know I'm a crybaby. Please don't leave me hon. See you in December hon, because you hurt me, so endure it for now, blehh. I'm making it up to you right now because I wasn't able to message you last month, sorry, mwah. Even though the way I write isn't that pretty, I hope you appreciate it.<br><br>
+
+Here's to countless more days, months, and a lifetime of making memories together, growing side by side, and loving each other through everything. Again, Happy 2.4 Monthsary hon. I love you more than words can say."
+            </div>
+            <div class="edit-hint">✨ Tip: You can click and edit this note right here!</div>
+        </section>
+
+        <!-- Photo Gallery (6 Polaroid Slots with pre-loaded pictures) -->
+        <section class="card">
+            <h2 class="section-title" style="text-align: center; margin-bottom: 20px;">Our Sweet Memories</h2>
+            <div class="gallery-grid">
+                <!-- Slot 1 -->
+                <div class="polaroid">
+                    <div class="polaroid-img-wrap" onclick="openLightbox('pic1.jpg')">
+                        <div class="upload-placeholder" id="placeholder-1" style="display:none;">📷 Click to add photo</div>
+                        <img id="img-1" src="pic1.jpg" style="display:block;" alt="Memory 1">
+                    </div>
+                    <div class="polaroid-caption" contenteditable="true" spellcheck="false">Pandemic Era</div>
+                </div>
+                <!-- Slot 2 -->
+                <div class="polaroid">
+                    <div class="polaroid-img-wrap" onclick="openLightbox('pic2.jpg')">
+                        <div class="upload-placeholder" id="placeholder-2" style="display:none;">📷 Click to add photo</div>
+                        <img id="img-2" src="pic2.jpg" style="display:block;" alt="Memory 2">
+                    </div>
+                    <div class="polaroid-caption" contenteditable="true" spellcheck="false">G12 End</div>
+                </div>
+                <!-- Slot 3 -->
+                <div class="polaroid">
+                    <div class="polaroid-img-wrap" onclick="openLightbox('pic3.jpg')">
+                        <div class="upload-placeholder" id="placeholder-3" style="display:none;">📷 Click to add photo</div>
+                        <img id="img-3" src="pic3.jpg" style="display:block;" alt="Memory 3">
+                    </div>
+                    <div class="polaroid-caption" contenteditable="true" spellcheck="false">Rainy Season</div>
+                </div>
+                <!-- Slot 4 -->
+                <div class="polaroid">
+                    <div class="polaroid-img-wrap" onclick="openLightbox('pic4.jpg')">
+                        <div class="upload-placeholder" id="placeholder-4" style="display:none;">📷 Click to add photo</div>
+                        <img id="img-4" src="pic4.jpg" style="display:block;" alt="Memory 4">
+                    </div>
+                    <div class="polaroid-caption" contenteditable="true" spellcheck="false">2years</div>
+                </div>
+                <!-- Slot 5 -->
+                <div class="polaroid">
+                    <div class="polaroid-img-wrap" onclick="openLightbox('pic5.jpg')">
+                        <div class="upload-placeholder" id="placeholder-5" style="display:none;">📷 Click to add photo</div>
+                        <img id="img-5" src="pic5.jpg" style="display:block;" alt="Memory 5">
+                    </div>
+                    <div class="polaroid-caption" contenteditable="true" spellcheck="false">Nature Adventure</div>
+                </div>
+                <!-- Slot 6 -->
+                <div class="polaroid">
+                    <div class="polaroid-img-wrap" onclick="openLightbox('pic6.jpg')">
+                        <div class="upload-placeholder" id="placeholder-6" style="display:none;">📷 Click to add photo</div>
+                        <img id="img-6" src="pic6.jpg" style="display:block;" alt="Memory 6">
+                    </div>
+                    <div class="polaroid-caption" contenteditable="true" spellcheck="false">Forever Us</div>
+                </div>
+            </div>
+            <div class="edit-hint" style="text-align: center; margin-top: 15px;">✨ Click any photo to view it fullscreen, and click captions to edit!</div>
+        </section>
+
+        <!-- Reasons Why I Love You -->
+        <section class="card reasons-container">
+            <h2 class="section-title">Reasons Why I Love You</h2>
+            <div class="reason-card-box">
+                <div class="reason-text" id="reasonText">Click the button below to discover a reason why you're my favorite person! 💕</div>
+            </div>
+            <button class="btn" onclick="nextReason()">Show Another Reason 💖</button>
+        </section>
+
+        <!-- Date Invitation Section -->
+        <section class="card invitation-section">
+            <h2 class="section-title">A Special Date Invitation</h2>
+            <p class="invitation-question">Will you go on a romantic monthsiversary date with me?</p>
+            <div class="invitation-buttons" id="inviteButtons">
+                <button class="btn-yes" onclick="acceptDate()">Yes, Absolutely! 🥰</button>
+                <button class="btn-no" id="btnNo" onmouseover="moveNoButton()" onclick="moveNoButton()">No 🙈</button>
+            </div>
+            
+            <div class="itinerary-card" id="itineraryCard">
+                <h4>It's a Date! 🎉</h4>
+                <div class="itinerary-details">
+                    <p><strong>📅 When:</strong> This weekend (Check your calendar!)</p>
+                    <p><strong>📍 Where:</strong> Our favorite cozy spot & dessert place</p>
+                    <p><strong>✨ Dress Code:</strong> Look cute & comfortable</p>
+                </div>
+                <input type="text" class="rsvp-input" id="rsvpNote" placeholder="Type your food craving or special request here...">
+                <button class="btn" style="margin-top: 15px; width: 100%;" onclick="sendRsvp()">Send RSVP to My Heart 💞</button>
+            </div>
+        </section>
+
+        <!-- Surprise Gift Box -->
+        <section class="card gift-section">
+            <h2 class="section-title">A Little Surprise</h2>
+            <p style="font-size: 0.95rem; opacity: 0.8; margin-bottom: 10px;">Tap the gift box to open your surprise!</p>
+            <div class="gift-box" onclick="openGift()">🎁</div>
+            <div id="giftMessage" style="display: none; margin-top: 15px; font-family: 'Dancing Script', cursive; font-size: 1.8rem; color: var(--wine-red);">
+                "You are my today and all of my tomorrows. Happy Monthsiversary!" ✨
+            </div>
+        </section>
+    </div>
+
+    <script>
+        /* --- BACKGROUND FLOATING HEARTS --- */
+        const heartsContainer = document.getElementById('heartsBg');
+        const heartSymbols = ['❤️', '💖', '💕', '✨', '🌹'];
+        for (let i = 0; i < 20; i++) {
+            const heart = document.createElement('div');
+            heart.className = 'floating-heart';
+            heart.innerHTML = heartSymbols[Math.floor(Math.random() * heartSymbols.length)];
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.animationDuration = (6 + Math.random() * 6) + 's';
+            heart.style.animationDelay = (Math.random() * 5) + 's';
+            heartsContainer.appendChild(heart);
+        }
+
+        /* --- LIGHTBOX --- */
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightboxImg');
+        const lightboxClose = document.getElementById('lightboxClose');
+
+        function openLightbox(src) {
+            lightboxImg.src = src;
+            lightbox.style.display = 'flex';
+        }
+
+        lightboxClose.onclick = () => { lightbox.style.display = 'none'; };
+        lightbox.onclick = (e) => { if(e.target === lightbox) lightbox.style.display = 'none'; };
+
+        /* --- REASONS WHY I LOVE YOU --- */
+        const reasons = [
+            "Your beautiful smile instantly brightens up my entire day.",
+            "The way you laugh at my silliest jokes.",
+            "How safe and happy I feel whenever I'm in your arms.",
+            "Your kindness, empathy, and gentle heart toward everyone.",
+            "The thoughtful little things you do without even realizing it.",
+            "How wonderfully passionate and ambitious you are.",
+            "Every single conversation we share, from deep talks to pure nonsense.",
+            "You are simply my home wherever we go."
+        ];
+        let reasonIndex = 0;
+
+        function nextReason() {
+            reasonIndex = (reasonIndex + 1) % reasons.length;
+            const box = document.getElementById('reasonText');
+            box.style.opacity = 0;
+            setTimeout(() => {
+                box.innerText = reasons[reasonIndex];
+                box.style.opacity = 1;
+            }, 200);
+            createHeartBurst();
+        }
+
+        /* --- INVITATION DODGE & ACCEPT --- */
+        const noPhrases = ["No 🙈", "Are you sure? 🥺", "Think again! 💕", "Pretty please? 🥰", "Don't break my heart 💔", "You have no choice! 💖"];
+        let noClickCount = 0;
+
+        function moveNoButton() {
+            const btnNo = document.getElementById('btnNo');
+            noClickCount = (noClickCount + 1) % noPhrases.length;
+            btnNo.innerText = noPhrases[noClickCount];
+            
+            const randomX = (Math.random() - 0.5) * 140;
+            const randomY = (Math.random() - 0.5) * 60;
+            btnNo.style.transform = `translate(${randomX}px, ${randomY}px)`;
+        }
+
+        function acceptDate() {
+            document.getElementById('inviteButtons').style.display = 'none';
+            document.getElementById('itineraryCard').style.display = 'block';
+            createHeartBurst();
+            createHeartBurst();
+        }
+
+        function sendRsvp() {
+            const note = document.getElementById('rsvpNote').value;
+            alert(note ? "RSVP sent with your note: '" + note + "'! Can't wait! ❤️" : "RSVP sent successfully! Can't wait for our date! ❤️");
+        }
+
+        /* --- SURPRISE GIFT BOX --- */
+        function openGift() {
+            const msg = document.getElementById('giftMessage');
+            msg.style.display = msg.style.display === 'block' ? 'none' : 'block';
+            createHeartBurst();
+        }
+
+        /* --- HEART BURST ANIMATION --- */
+        function createHeartBurst() {
+            for (let i = 0; i < 12; i++) {
+                const burst = document.createElement('div');
+                burst.className = 'confetti-heart';
+                burst.innerHTML = '❤️';
+                burst.style.left = (window.innerWidth / 2 + (Math.random() - 0.5) * 200) + 'px';
+                burst.style.top = (window.innerHeight / 2 + (Math.random() - 0.5) * 100) + 'px';
+                burst.style.setProperty('--rand-x', `${(Math.random() - 0.5) * 300}px`);
+                document.body.appendChild(burst);
+                setTimeout(() => burst.remove(), 1500);
+            }
+        }
+
+        /* --- WEB AUDIO API ROMANTIC MELODY --- */
+        let audioCtx = null;
+        let isPlaying = false;
+        let melodyInterval = null;
+
+        const notes = [261.63, 293.66, 329.63, 392.00, 440.00, 523.25]; // C4, D4, E4, G4, A4, C5
+
+        function playTone(freq, duration) {
+            if (!audioCtx) return;
+            try {
+                const osc = audioCtx.createOscillator();
+                const gain = audioCtx.createGain();
+                osc.type = 'sine';
+                osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
+
+                gain.gain.setValueAtTime(0.08, audioCtx.currentTime);
+                gain.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + duration);
+
+                osc.connect(gain);
+                gain.connect(audioCtx.destination);
+
+                osc.start();
+                osc.stop(audioCtx.currentTime + duration);
+            } catch(e) {}
+        }
+
+        document.getElementById('musicToggle').onclick = function() {
+            if (!isPlaying) {
+                audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+                if (audioCtx.state === 'suspended') audioCtx.resume();
+                
+                isPlaying = true;
+                this.innerHTML = '⏸';
+                this.title = "Pause Melody";
+
+                const songSequence = [0, 2, 4, 3, 2, 1, 0, 4, 5, 4, 2];
+                let idx = 0;
+
+                melodyInterval = setInterval(() => {
+                    playTone(notes[songSequence[idx]], 0.8);
+                    idx = (idx + 1) % songSequence.length;
+                }, 900);
+            } else {
+                isPlaying = false;
+                this.innerHTML = '🎵';
+                this.title = "Play Romantic Melody";
+                if (melodyInterval) clearInterval(melodyInterval);
+                if (audioCtx) audioCtx.close();
+                audioCtx = null;
+            }
+        };
+    </script>
+</body>
+</html>
